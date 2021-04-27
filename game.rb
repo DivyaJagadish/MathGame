@@ -12,13 +12,15 @@ class Game
   def continue_game
     turn = Changeturn.new(@player1.name)
     while (@player1.life > 0 && @player2.life >0) do
-      puts "----New turn........"
       question = Question.new(turn.name)
       if(!question.check_answer_correctness())
       turn.name == "player1" ? @player1.updateLife() : @player2.updateLife()
       end
       puts "P1 : #{@player1.life}/3 P2: #{@player2.life}/3"
-       turn.toggle_player()
+      turn.toggle_player()
+      if(@player1.life > 0 && @player2.life >0) 
+       puts "----New turn........"
+      end
     end
     self.end_game()
  end
