@@ -1,3 +1,4 @@
+# class for changing turn
 class Changeturn
   attr_accessor :name
   def  initialize(name)
@@ -6,10 +7,9 @@ class Changeturn
   def toggle_player 
     if(@name == "player1")
       @name = "player2"
-      return @name
-    end 
+    else
     @name = "player1"
-    return @name
+    end
   end
 end
 
